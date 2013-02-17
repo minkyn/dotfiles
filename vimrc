@@ -154,6 +154,7 @@ let g:tagbar_sort = 0
 
 " NeoComplCache {{{
 let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_auto_close_preview = 1
 let g:neocomplcache_disable_auto_complete = 1
 let g:neocomplcache_temporary_dir = '~/.cache/neocon'
 " }}}
