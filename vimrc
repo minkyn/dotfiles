@@ -68,8 +68,8 @@ nnoremap Y y$
 nnoremap Q :confirm qa<CR>
 cnoremap w!! w !sudo tee % >/dev/null
 
-nnoremap <C-[> zh
-nnoremap <C-]> zl
+nnoremap <C-]> zh
+nnoremap <C-\> zl
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-H> <C-W>h
