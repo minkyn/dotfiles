@@ -1,0 +1,3 @@
+# ...
+
+[ -r ~/.profile ] && . ~/.profile

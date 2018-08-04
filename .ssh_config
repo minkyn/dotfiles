@@ -1,0 +1,15 @@
+Host *
+    # ServerAliveInterval 30
+    # ProxyCommand nc -x 127.0.0.1:1086 %h %p
+
+Host github
+    HostName github.com
+    User git
+    Port 22
+    IdentityFile ~/.ssh/github_rsa
+
+Host gitlab
+    HostName gitlab.com
+    User git
+    Port 22
+    IdentityFile ~/.ssh/gitlab_rsa
