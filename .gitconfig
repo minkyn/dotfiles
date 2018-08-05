@@ -1,0 +1,14 @@
+[user]
+	name = Ming Jiang
+	email = minkyn@users.noreply.github.com
+	signingKey = 94E74C61D2305925
+[ui]
+	color = auto
+[commit]
+	gpgSign = true
+[core]
+	# gitProxy = socks5://127.0.0.1:1086
+[http]
+	# proxy = socks5://127.0.0.1:1086
+[https]
+	# proxy = socks5://127.0.0.1:1086
