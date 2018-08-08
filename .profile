@@ -69,34 +69,13 @@ fi
 # }}}
 
 # Android {{{
-ANDROID_SDK=~/Library/Android/sdk
-if [[ -d "$ANDROID_SDK" ]]; then
-    export ANDROID_SDK
-    export PATH="$ANDROID_SDK/platform-tools:$(ls -d $ANDROID_SDK/build-tools/* | tail -n 1):$PATH"
-
-    sign() {
-        local ks="${1:?'Provide key pair or keystore name as the first argument'}"
-        local apk="${2:?'Provide apk to sign as the second argument'}"
-
-        local aligned_apk="${apk}_aligned"
-        zipalign -p 4 "$apk" "$aligned_apk"
-
-        local ks_dir=~/.android
-        if [[ -f "${ks_dir}/${ks}.pk8" && -f "${ks_dir}/${ks}.x509.pem" ]]; then
-            apksigner sign --key "${ks_dir}/${ks}.pk8" --cert "${ks_dir}/${ks}.x509.pem" --out "$apk" "$aligned_apk"
-        elif [[ -f "${ks_dir}/${ks}.jks" ]]; then
-            apksigner sign --ks "${ks_dir}/${ks}.jks" --out "$apk" "$aligned_apk"
-        else
-            apksigner sign --ks "${ks_dir}/${ks}" --out "$apk" "$aligned_apk"
-        fi
-
-        rm -f "$aligned_apk"
-    }
+ANDROID_SDK_ROOT='/usr/local/share/android-sdk'
+if [[ -d "$ANDROID_SDK_ROOT" ]]; then
+    export ANDROID_SDK_ROOT
 fi
 
-ANDROID_NDK=~/Library/Android/sdk/ndk-bundle
-if [[ -d "$ANDROID_NDK" ]]; then
-    export ANDROID_NDK
-    export PATH="$ANDROID_NDK:$PATH"
+ANDROID_NDK_HOME='/usr/local/share/android-ndk'
+if [[ -d "$ANDROID_NDK_HOME" ]]; then
+    export ANDROID_NDK_HOME
 fi
 # }}}
