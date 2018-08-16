@@ -11,26 +11,25 @@ export VISUAL=vim
 
 # Aliases {{{
 alias ff=_find
-alias f.='_find .'
 alias gg=_grep
-alias g.='_grep .'
+alias clean=_clean
 # }}}
 
 # Functions {{{
 _find() {
-    local loc="${1?}"
+    pat="${1?}"
     shift
-    : ${@:?}
-    find "$loc" -iname "$@"
+    locs=("${@:-.}")
+    find "${locs[@]}" -iname "$pat"
 }
 _grep() {
-    local loc="${1?}"
+    pat="${1?}"
     shift
-    : ${@:?}
-    grep -Eir "$@" "$loc"
+    locs=("${@:-.}")
+    grep -Eir "$pat" "${locs[@]}"
 }
 clean() {
-    local locs=("${@:-.}")
+    locs=("${@:-.}")
     xattr -c -r "${locs[@]}" 2>/dev/null
     find "${locs[@]}" \( -type d -exec chmod 755 {} \; \) -o \( -type f -exec chmod 644 {} \; \)
     find "${locs[@]}" -name '.DS_Store' -delete
