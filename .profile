@@ -28,7 +28,7 @@ _grep() {
     locs=("${@:-.}")
     grep -Eir "$pat" "${locs[@]}"
 }
-clean() {
+_clean() {
     locs=("${@:-.}")
     xattr -c -r "${locs[@]}" 2>/dev/null
     find "${locs[@]}" \( -type d -exec chmod 755 {} \; \) -o \( -type f -exec chmod 644 {} \; \)
