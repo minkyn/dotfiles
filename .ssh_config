@@ -11,6 +11,11 @@ Host gitlab
     User git
     IdentityFile ~/.ssh/gitlab_rsa
 
+Host bitbucket
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/bitbucket_rsa
+
 # Host my-server
 #     HostName ***
 #     User ***
