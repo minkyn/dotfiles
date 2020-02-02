@@ -67,13 +67,6 @@ if [[ -d "$HOME/.local/bin" ]]; then
 fi
 # }}}
 
-# Anaconda {{{
-ANACONDA_ROOT='/usr/local/anaconda3'
-if [[ -d "$ANACONDA_ROOT" ]]; then
-    export PATH="$ANACONDA_ROOT/bin:$PATH"
-fi
-# }}}
-
 # Android {{{
 ANDROID_SDK_ROOT='/usr/local/share/android-sdk'
 if [[ -d "$ANDROID_SDK_ROOT" ]]; then
