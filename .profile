@@ -47,34 +47,26 @@ if [[ -n "$HOMEBREW_PREFIX"  ]]; then
 fi
 # }}}
 
+# Python {{{
+alias python=python3
+# }}}
+
 # Java {{{
 if [[ -x '/usr/libexec/java_home' ]]; then
     export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
 fi
 # }}}
 
-# Python {{{
-if command -v pipenv >/dev/null 2>&1; then
-    eval "$(pipenv --completion)"
-fi
-
-if command -v pyenv >/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
-
-if [[ -d "$HOME/.local/bin" ]]; then
-    export PATH="$HOME/.local/bin:$PATH"
-fi
-# }}}
-
 # Android {{{
-ANDROID_SDK_ROOT='/usr/local/share/android-sdk'
+ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 if [[ -d "$ANDROID_SDK_ROOT" ]]; then
     export ANDROID_SDK_ROOT
+    export ANDROID_HOME="$ANDROID_SDK_ROOT"
 fi
 
-ANDROID_NDK_HOME='/usr/local/share/android-ndk'
-if [[ -d "$ANDROID_NDK_HOME" ]]; then
-    export ANDROID_NDK_HOME
+ANDROID_NDK_ROOT="$ANDROID_SDK_ROOT/ndk"
+if [[ -d "$ANDROID_NDK_ROOT" ]]; then
+    vers=($(ls "$ANDROID_NDK_ROOT"))
+    export ANDROID_NDK_HOME="$ANDROID_NDK_ROOT/${vers[-1]}"
 fi
 # }}}
