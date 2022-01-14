@@ -52,7 +52,9 @@ alias python=python3
 # }}}
 
 # Java {{{
-if [[ -x '/usr/libexec/java_home' ]]; then
+if [[ -d '/usr/local/opt/java' ]]; then
+    export JAVA_HOME='/usr/local/opt/java'
+elif [[ -x '/usr/libexec/java_home' ]]; then
     export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
 fi
 # }}}
