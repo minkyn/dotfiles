@@ -48,7 +48,7 @@ fi
 # }}}
 
 # Python {{{
-alias python=python3
+# alias python=python3
 # }}}
 
 # Java {{{
@@ -70,5 +70,10 @@ ANDROID_NDK_ROOT="$ANDROID_SDK_ROOT/ndk"
 if [[ -d "$ANDROID_NDK_ROOT" ]]; then
     vers=($(ls "$ANDROID_NDK_ROOT"))
     export ANDROID_NDK_HOME="$ANDROID_NDK_ROOT/${vers[-1]}"
+fi
+
+ANDROID_PLATFORM_TOOLS="$ANDROID_SDK_ROOT/platform-tools"
+if [[ -d "$ANDROID_PLATFORM_TOOLS" ]]; then
+    export PATH="$ANDROID_PLATFORM_TOOLS:$PATH"
 fi
 # }}}
