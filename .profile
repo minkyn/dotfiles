@@ -48,7 +48,9 @@ fi
 # }}}
 
 # Python {{{
-# alias python=python3
+if [[ -d "$HOME/.local/bin" ]]; then
+    export PATH="$PATH:$HOME/.local/bin"
+fi
 # }}}
 
 # Java {{{
