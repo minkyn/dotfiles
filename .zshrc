@@ -1,4 +1,10 @@
 
 [ -r ~/.profile ] && . ~/.profile
 
-# TODO: Install iTerm2 Shell Integration & Conda Init
+# TODO: Configure plugins
+
+# TODO: iTerm2 -> Install Shell Integration
+
+# TODO: conda init zsh
+
+# TODO: pipx ensurepath
