@@ -1,6 +1,5 @@
-ssl_verify: true
+auto_activate_base: false
 channels:
   - conda-forge
   - defaults
-auto_activate_base: false
 channel_priority: strict
