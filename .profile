@@ -53,6 +53,12 @@ if [[ -d "$HOME/.local/bin" ]]; then
 fi
 # }}}
 
+# Rust {{{
+if [[ -r "$HOME/.cargo/env" ]]; then
+    . "$HOME/.cargo/env"
+fi
+# }}}
+
 # Java {{{
 if [[ -x '/usr/libexec/java_home' ]]; then
     export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
