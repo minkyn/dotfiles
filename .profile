@@ -59,6 +59,13 @@ if [[ -r "$HOME/.cargo/env" ]]; then
 fi
 # }}}
 
+# Go {{{
+if [[ -x "$(command -v go)" ]]; then
+    export GOPATH="$HOME/.go"
+    export PATH="$PATH:$GOPATH/bin"
+fi
+# }}}
+
 # Java {{{
 if [[ -x '/usr/libexec/java_home' ]]; then
     export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
