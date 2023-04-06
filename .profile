@@ -59,6 +59,13 @@ if [[ -r "$HOME/.cargo/env" ]]; then
 fi
 # }}}
 
+# Node {{{
+NVM_PREFIX="$(brew --prefix nvm 2>/dev/null)"
+if [[ -s "$NVM_PREFIX/nvm.sh" ]]; then
+    . "$NVM_PREFIX/nvm.sh"
+fi
+# }}}
+
 # Go {{{
 if [[ -x "$(command -v go)" ]]; then
     export GOPATH="$HOME/.go"
