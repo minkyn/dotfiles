@@ -49,7 +49,7 @@ fi
 
 # Python {{{
 if [[ -d "$HOME/.local/bin" ]]; then
-    export PATH="$PATH:$HOME/.local/bin"
+    export PATH="$HOME/.local/bin:$PATH"
 fi
 # }}}
 
@@ -69,7 +69,7 @@ fi
 # Go {{{
 if [[ -x "$(command -v go)" ]]; then
     export GOPATH="$HOME/.go"
-    export PATH="$PATH:$GOPATH/bin"
+    export PATH="$GOPATH/bin:$PATH"
 fi
 # }}}
 
