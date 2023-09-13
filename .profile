@@ -80,10 +80,9 @@ fi
 # }}}
 
 # .Net {{{
-DOTNET_PREFIX="$(brew --prefix dotnet@6 2>/dev/null)"
+DOTNET_PREFIX="$(brew --prefix dotnet 2>/dev/null)"
 if [[ -d "$DOTNET_PREFIX" ]]; then
     export DOTNET_ROOT="$DOTNET_PREFIX/libexec"
-    export PATH="$DOTNET_PREFIX/bin:$PATH"
 fi
 # }}}
 
