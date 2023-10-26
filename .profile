@@ -42,8 +42,14 @@ _clean() {
 
 # Homebrew {{{
 HOMEBREW_PREFIX="$(brew --prefix 2>/dev/null)"
-if [[ -n "$HOMEBREW_PREFIX"  ]]; then
+if [[ -n "$HOMEBREW_PREFIX" ]]; then
     export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
+fi
+
+CURL_PREFIX="$(brew --prefix curl 2>/dev/null)"
+if [[ -n "$CURL_PREFIX" ]]; then
+    export PATH="$CURL_PREFIX/bin:$PATH"
+    export HOMEBREW_FORCE_BREWED_CURL=1
 fi
 # }}}
 
