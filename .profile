@@ -110,3 +110,12 @@ if [[ -d "$ANDROID_PLATFORM_TOOLS" ]]; then
     export PATH="$ANDROID_PLATFORM_TOOLS:$PATH"
 fi
 # }}}
+
+# TeXLive {{{
+TEXLIVE_ROOT="/usr/local/texlive"
+if [[ -d "$TEXLIVE_ROOT" ]]; then
+    vers=($(ls "$TEXLIVE_ROOT"))
+    export TEXLIVE_BIN="$(ls -d $TEXLIVE_ROOT/${vers[-2]}/bin/* | tail -n 1)"
+    export PATH="$TEXLIVE_BIN:$PATH"
+fi
+# }}}
