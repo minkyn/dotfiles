@@ -24,8 +24,3 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-
-HOMEBREW_PREFIX="$(brew --prefix 2>/dev/null)"
-[ -r "$HOMEBREW_PREFIX/etc/bash_completion" ] && . "$HOMEBREW_PREFIX/etc/bash_completion"
-
-[ -r ~/.profile ] && . ~/.profile

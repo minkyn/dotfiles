@@ -1,10 +1,1 @@
-
-[ -r ~/.profile ] && . ~/.profile
-
-# TODO: Configure plugins
-
-# TODO: iTerm2 -> Install Shell Integration
-
-# TODO: conda init zsh
-
-# TODO: pipx ensurepath
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

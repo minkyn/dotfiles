@@ -41,22 +41,19 @@ _clean() {
 #-------------------------------------------------------------------------------
 
 # Homebrew {{{
-HOMEBREW_PREFIX="$(brew --prefix 2>/dev/null)"
-if [[ -n "$HOMEBREW_PREFIX" ]]; then
-    export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
+_HOMEBREW_BIN="/opt/homebrew/bin/brew"
+if [[ -x "$_HOMEBREW_BIN" ]]; then
+    eval "$($_HOMEBREW_BIN shellenv)"
 fi
-
-CURL_PREFIX="$(brew --prefix curl 2>/dev/null)"
-if [[ -n "$CURL_PREFIX" ]]; then
-    export PATH="$CURL_PREFIX/bin:$PATH"
-    export HOMEBREW_FORCE_BREWED_CURL=1
-fi
+unset _HOMEBREW_BIN
 # }}}
 
 # Python {{{
-if [[ -d "$HOME/.local/bin" ]]; then
-    export PATH="$HOME/.local/bin:$PATH"
+_CONDA_BIN="$(brew --caskroom 2>/dev/null)/miniconda/base/bin/conda"
+if [[ -x "$_CONDA_BIN" ]]; then
+    eval "$($_CONDA_BIN shell.$(basename $SHELL) hook)"
 fi
+unset _CONDA_BIN
 # }}}
 
 # Rust {{{
@@ -66,10 +63,11 @@ fi
 # }}}
 
 # Node {{{
-NVM_PREFIX="$(brew --prefix nvm 2>/dev/null)"
-if [[ -s "$NVM_PREFIX/nvm.sh" ]]; then
-    . "$NVM_PREFIX/nvm.sh"
+_NVM_PREFIX="$(brew --prefix nvm 2>/dev/null)"
+if [[ -r "$_NVM_PREFIX/nvm.sh" ]]; then
+    . "$_NVM_PREFIX/nvm.sh"
 fi
+unset _NVM_PREFIX
 # }}}
 
 # Go {{{
@@ -86,36 +84,30 @@ fi
 # }}}
 
 # .Net {{{
-DOTNET_PREFIX="$(brew --prefix dotnet 2>/dev/null)"
-if [[ -d "$DOTNET_PREFIX" ]]; then
-    export DOTNET_ROOT="$DOTNET_PREFIX/libexec"
+_DOTNET_PREFIX="$(brew --prefix dotnet 2>/dev/null)"
+if [[ -d "$_DOTNET_PREFIX" ]]; then
+    export DOTNET_ROOT="$_DOTNET_PREFIX/libexec"
 fi
+unset _DOTNET_PREFIX
 # }}}
 
 # Android {{{
-ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
-if [[ -d "$ANDROID_SDK_ROOT" ]]; then
-    export ANDROID_SDK_ROOT
-    export ANDROID_HOME="$ANDROID_SDK_ROOT"
+_ANDROID_HOME="$HOME/Library/Android/sdk"
+if [[ -d "$_ANDROID_HOME" ]]; then
+    export ANDROID_HOME="$_ANDROID_HOME"
+    export PATH="$ANDROID_HOME/platform-tools:$PATH"
 fi
-
-ANDROID_NDK_ROOT="$ANDROID_SDK_ROOT/ndk"
-if [[ -d "$ANDROID_NDK_ROOT" ]]; then
-    vers=($(ls "$ANDROID_NDK_ROOT"))
-    export ANDROID_NDK_HOME="$ANDROID_NDK_ROOT/${vers[-1]}"
-fi
-
-ANDROID_PLATFORM_TOOLS="$ANDROID_SDK_ROOT/platform-tools"
-if [[ -d "$ANDROID_PLATFORM_TOOLS" ]]; then
-    export PATH="$ANDROID_PLATFORM_TOOLS:$PATH"
-fi
+unset _ANDROID_HOME
 # }}}
 
 # TeXLive {{{
-TEXLIVE_ROOT="/usr/local/texlive"
-if [[ -d "$TEXLIVE_ROOT" ]]; then
-    vers=($(ls "$TEXLIVE_ROOT"))
-    export TEXLIVE_BIN="$(ls -d $TEXLIVE_ROOT/${vers[-2]}/bin/* | tail -n 1)"
-    export PATH="$TEXLIVE_BIN:$PATH"
+_TEXLIVE_ROOT="/usr/local/texlive"
+if [[ -d "$_TEXLIVE_ROOT" ]]; then
+    _children=($(ls "$_TEXLIVE_ROOT"))
+    _TEXLIVE_BIN="$(ls -d $_TEXLIVE_ROOT/${_children[-2]}/bin/* | tail -n 1)"
+    export PATH="$_TEXLIVE_BIN:$PATH"
+    unset _TEXLIVE_BIN
+    unset _children
 fi
+unset _TEXLIVE_ROOT
 # }}}

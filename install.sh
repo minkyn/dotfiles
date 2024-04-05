@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
 curl -o ~/.profile https://raw.githubusercontent.com/minkyn/dotfiles/master/.profile
-curl https://raw.githubusercontent.com/minkyn/dotfiles/master/.zshrc >> ~/.zshrc
+curl -o ~/.zprofile https://raw.githubusercontent.com/minkyn/dotfiles/master/.zprofile
 # curl -o ~/.bash_profile https://raw.githubusercontent.com/minkyn/dotfiles/master/.bash_profile
 # curl -o ~/.bashrc https://raw.githubusercontent.com/minkyn/dotfiles/master/.bashrc
 
 curl -o ~/.vimrc https://raw.githubusercontent.com/minkyn/dotfiles/master/.vimrc
 curl -o ~/.tmux.conf https://raw.githubusercontent.com/minkyn/dotfiles/master/.tmux.conf
 curl -o ~/.gitconfig https://raw.githubusercontent.com/minkyn/dotfiles/master/.gitconfig
-
 # curl -o ~/.condarc https://raw.githubusercontent.com/minkyn/dotfiles/master/.condarc
 
 # curl -o ~/.ssh/config https://raw.githubusercontent.com/minkyn/dotfiles/master/.ssh_config
