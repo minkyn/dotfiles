@@ -10,19 +10,19 @@ export VISUAL=vim
 # }}}
 
 # Aliases {{{
-alias ff=_ff
-alias gg=_gg
+alias fff=_fff
+alias ggg=_ggg
 alias clean=_clean
 # }}}
 
 # Functions {{{
-_ff() {
+_fff() {
     pat="${1?}"
     shift
     locs=("${@:-.}")
     find "${locs[@]}" -iname "$pat"
 }
-_gg() {
+_ggg() {
     pat="${1?}"
     shift
     locs=("${@:-.}")
