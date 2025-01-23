@@ -70,6 +70,12 @@ fi
 unset _NVM_PREFIX
 # }}}
 
+# Gem {{{
+if [[ -x "$(command -v gem)" ]]; then
+    export GEM_HOME="$HOME/.gem"
+fi
+# }}}
+
 # Go {{{
 if [[ -x "$(command -v go)" ]]; then
     export GOPATH="$HOME/.go"
