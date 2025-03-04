@@ -73,6 +73,7 @@ unset _NVM_PREFIX
 # Gem {{{
 if [[ -x "$(command -v gem)" ]]; then
     export GEM_HOME="$HOME/.gem"
+    export PATH="$GEM_HOME/bin:$PATH"
 fi
 # }}}
 
