@@ -9,6 +9,7 @@ set nocompatible
 set nobackup
 set encoding=utf-8
 set fileformats=unix,dos
+set re=0
 set modeline
 set modelines&
 set wildmenu
