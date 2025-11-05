@@ -8,7 +8,6 @@ curl -o ~/.zprofile https://raw.githubusercontent.com/minkyn/dotfiles/master/.zp
 curl -o ~/.vimrc https://raw.githubusercontent.com/minkyn/dotfiles/master/.vimrc
 curl -o ~/.tmux.conf https://raw.githubusercontent.com/minkyn/dotfiles/master/.tmux.conf
 curl -o ~/.gitconfig https://raw.githubusercontent.com/minkyn/dotfiles/master/.gitconfig
-# curl -o ~/.condarc https://raw.githubusercontent.com/minkyn/dotfiles/master/.condarc
 
 # curl -o ~/.ssh/config https://raw.githubusercontent.com/minkyn/dotfiles/master/.ssh_config
 # chmod u=rw,go= ~/.ssh/{config,*_rsa}
