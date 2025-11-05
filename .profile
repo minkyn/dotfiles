@@ -49,11 +49,11 @@ unset _HOMEBREW_BIN
 # }}}
 
 # Python {{{
-_CONDA_BIN="$(brew --caskroom 2>/dev/null)/miniconda/base/bin/conda"
-if [[ -x "$_CONDA_BIN" ]]; then
-    eval "$($_CONDA_BIN shell.$(basename $SHELL) hook)"
+_UV_TOOL_BIN="$HOME/.local/bin"
+if [[ -d "$_UV_TOOL_BIN" ]]; then
+    export PATH="$_UV_TOOL_BIN:$PATH"
 fi
-unset _CONDA_BIN
+unset _UV_TOOL_BIN
 # }}}
 
 # Rust {{{
@@ -62,7 +62,7 @@ if [[ -r "$HOME/.cargo/env" ]]; then
 fi
 # }}}
 
-# Node {{{
+# TypeScript {{{
 _NVM_PREFIX="$(brew --prefix nvm 2>/dev/null)"
 if [[ -r "$_NVM_PREFIX/nvm.sh" ]]; then
     . "$_NVM_PREFIX/nvm.sh"
@@ -88,14 +88,6 @@ fi
 if [[ -x '/usr/libexec/java_home' ]]; then
     export JAVA_HOME="$(/usr/libexec/java_home 2>/dev/null)"
 fi
-# }}}
-
-# .Net {{{
-_DOTNET_PREFIX="$(brew --prefix dotnet 2>/dev/null)"
-if [[ -d "$_DOTNET_PREFIX" ]]; then
-    export DOTNET_ROOT="$_DOTNET_PREFIX/libexec"
-fi
-unset _DOTNET_PREFIX
 # }}}
 
 # Android {{{
